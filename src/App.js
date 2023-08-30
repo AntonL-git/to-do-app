@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react"
 
-function App() {
+export default function App() {
+
+  const todos = [
+    {title: "Morning Workout", done: false},
+    {title: "Do the homework", done: true},
+    {title: "Register for the module", done: false},
+    {title: "Complete application", done: true}
+  ]
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  <>
+    <Header />
+    <Button />
+    <TodoList todos={todos} />
+  </>
+  )
 }
 
-export default App;
+function Header(){
+  return(
+    <h1>To-Do</h1>
+  )
+}
+
+function Button(){
+  const [count, setCount] = useState(0)
+
+  function handleClick(){
+    setCount(count+1)
+  }
+
+  return(
+    <button onClick={handleClick}>
+      Add task {count}
+    </button>
+  )
+}
+
+function TodoList({todos}){
+  const todoItems = todos.map(todo => (
+    <li key={todo.id}>
+      {todo.title}
+      {todo.done ? <p>Done</p> : <p>In Progress</p>}
+    </li>
+  ))
+
+  return <ul>{todoItems}</ul>
+}
