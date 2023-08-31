@@ -1,14 +1,11 @@
-import React from "react"
+import React from 'react';
 
-function Header(){
-    return(
-        <div className="title">
-            <div>To-Do Tracker</div>
-        </div>
-    )
+function Header() {
+  return (
+    <div className="title">
+      <div>To-Do Tracker</div>
+    </div>
+  );
 }
 
-export default Header
-
-  
-  
+export default Header;
