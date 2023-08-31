@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import TodoItem from './TodoItem';
 import NewTask from './NewTask';
-
-const BASE_URL = "http://localhost:8080"
+import BASE_URL from './../config'
 
 
 function TodoList(){
 
-    const [todos, setTodos] = useState([]) 
+    const [todos, setTodos] = useState([])
 
     useEffect(() => {
         getTodos()
-        console.log(todos)
     }, [])  
     
     const getTodos = () => {
@@ -22,14 +20,14 @@ function TodoList(){
     }
 
     return (
-        <>
+        <div className="todo-list">
             <NewTask setTodos={setTodos}/>
             {todos.map(todo => (
                 <div key={todo.id}>
                     <TodoItem todo = {todo} setTodos={setTodos}/> 
                 </div>
             ))}
-        </>
+        </div>
     )
 }
 

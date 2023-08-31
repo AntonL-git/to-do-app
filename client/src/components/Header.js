@@ -2,7 +2,9 @@ import React from "react"
 
 function Header(){
     return(
-        <h1>To-Do Tracker</h1>
+        <div className="title">
+            <div>To-Do Tracker</div>
+        </div>
     )
 }
 

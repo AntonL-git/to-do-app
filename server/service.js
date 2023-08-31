@@ -7,10 +7,11 @@ const port = 8080
 app.use(express.json())
 app.use(cors())
 
+//Initial data
 let todos = [
-    {title: "Morning Workout", completed: false, id:1},
+    {title: "Finish the ticket", completed: false, id:1},
     {title: "Do the homework", completed: false, id:2},
-    {title: "Complete application", completed: false, id:3}
+    {title: "Submit application", completed: false, id:3}
 ]
 
 app.listen(port, () => console.log(`Server is running on http://localhost:${port}`))

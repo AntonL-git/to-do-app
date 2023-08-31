@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { BASE_URL } from '../api';
+import React from 'react';
+import BASE_URL from './../config'
 
 function TodoItem({todo, setTodos}) {
 
@@ -25,11 +25,11 @@ function TodoItem({todo, setTodos}) {
         </span>
 
     return (
-        <>
+        <div className='todo-item'>
             <input type="checkbox" checked={todo.completed} onChange={() => completeTodo(todo.id)}/>
-            {title}
-            <button onClick={() => deleteTodo(todo.id)}>X</button>
-        </>
+                {title}
+            <button className="delete-button" onClick={() => deleteTodo(todo.id)}>X</button>
+        </div>
     )
 }
 
