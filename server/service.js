@@ -16,7 +16,7 @@ app.get('*', (req, res) => {
 // Initial data
 let todos = [];
 
-app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server is running on http://0.0.0.0:${PORT}`));
 
 // Check todo fields
 function validateTodo(req, res, next) {
