@@ -5,8 +5,8 @@
   "main": "service.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/service.js",
-    "build": "cd client && npm install && npm run build",
+    "start": "node server/service.js",
+    "build": "cd client && npm install && npm run build && cd .. && npm i express",
     "postinstall": "npm run build"
   },
   "repository": {
