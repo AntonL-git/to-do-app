@@ -17,11 +17,7 @@ Express.js
 ## Start application
 
 ```bash
-#frontend
-cd client
-npm start
-
-#backend
-cd server
+cd to-do-app
+npm run build
 npm start
 ```
