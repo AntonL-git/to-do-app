@@ -1,20 +1,22 @@
 const express = require('express');
 const cors = require('cors');
-
 const app = express();
-const port = 8080;
+const path = require('path')
+
+const PORT = process.env.port || 8080;
 
 app.use(express.json());
 app.use(cors());
+app.use(express.static(path.resolve(__dirname, '../client/build')));
+
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+})
 
 // Initial data
-let todos = [
-  { title: 'Finish the ticket', completed: false, id: 1 },
-  { title: 'Do the homework', completed: false, id: 2 },
-  { title: 'Submit application', completed: false, id: 3 },
-];
+let todos = [];
 
-app.listen(port, () => console.log(`Server is running on http://localhost:${port}`));
+app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
 
 // Check todo fields
 function validateTodo(req, res, next) {
